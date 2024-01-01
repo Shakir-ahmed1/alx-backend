@@ -41,6 +41,9 @@ class Server:
 
     def get_hyper_index(self, index: Union[int, None], page_size: int = 10) -> Dict:
             """ getting deletion resisting page """
+            assert type(index) == int
+            assert type(page_size) == int
+
             ids = self.__indexed_dataset
             length = len(ids)
             if index is None:
