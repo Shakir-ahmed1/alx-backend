@@ -39,16 +39,16 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: Union[int, None] = None, page_size: int = 10) -> Dict[Any, Any]:
+    def get_hyper_index(self, index: Union[int, None], page_size: int = 10) -> Dict[str, Any]:
             """ getting deletion resisting page """
             result = {}
             ids = self.__indexed_dataset
             length = len(ids)
-            if index == None:
+            if index is None:
                  index = 0
             assert index < length and index >= 0
             result['index'] = index
-            result['data'] = []
+            result['data']: List[Any] = []
             count = 0
             for a in range(index, length):
                 if ids.get(a):
