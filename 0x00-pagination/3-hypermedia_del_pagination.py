@@ -39,29 +39,29 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: Union[int, None], page_size: int = 10) -> Dict:
-            """ getting deletion resisting page """
-            assert type(index) == int
-            assert type(page_size) == int
-
-            ids = self.__indexed_dataset
-            length = len(ids)
-            if index is None:
-                 index = 0
-            assert index < length and index >= 0
-            data = []
-            count = 0
-            for a in range(index, length):
-                if ids.get(a):
-                    count += 1
-                    data.append(ids.get(a))
-                if count == page_size:
-                    break
-
-            result = {
-                "index": index,
-                "data": data,
-                "next_index": a + 1,
-                "page_size": page_size
-            }
-            return result
+    def get_hyper_index(self, index: Union[int, None],
+                        page_size: int = 10) -> Dict:
+        """ getting deletion resisting page
+            """
+        assert type(index) == int
+        assert type(page_size) == int
+        # ids = self.__indexed_dataset
+        ids = self.indexed_dataset()
+        length = len(ids)
+        if index is None:
+            index = 0
+        assert index < length and index >= 0
+        data = []
+        count = 0
+        for a in range(index, length):
+            if ids.get(a):
+                count += 1
+                data.append(ids.get(a))
+            if count == page_size:
+                break
+        return {
+            "index": index,
+            "data": data,
+            "next_index": a + 1,
+            "page_size": page_size
+        }
