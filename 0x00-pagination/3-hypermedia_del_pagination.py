@@ -46,7 +46,7 @@ class Server:
             length = len(ids)
             if index == None:
                  index = 0
-            assert index < length
+            assert index < length and index >= 0
             result['index'] = index
             result['data'] = []
             count = 0
