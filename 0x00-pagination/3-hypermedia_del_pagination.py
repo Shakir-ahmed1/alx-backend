@@ -45,8 +45,7 @@ class Server:
             """
         assert type(index) == int
         assert type(page_size) == int
-        # ids = self.__indexed_dataset
-        ids = self.indexed_dataset()
+        ids = self.__indexed_dataset
         length = len(ids)
         if index is None:
             index = 0
