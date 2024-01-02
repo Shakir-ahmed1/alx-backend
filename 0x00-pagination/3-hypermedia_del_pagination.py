@@ -47,6 +47,7 @@ class Server:
         assert type(page_size) == int
         ids = self.__indexed_dataset
         length = len(ids)
+        idxx = index
         if index is None:
             index = 0
         assert index < length and index >= 0
@@ -59,7 +60,7 @@ class Server:
             if count == page_size:
                 break
         return {
-            "index": index,
+            "index": idxx,
             "data": data,
             "next_index": a + 1,
             "page_size": page_size
