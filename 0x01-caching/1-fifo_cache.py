@@ -2,13 +2,14 @@
 """ implemntation of cache with FIFO caching """
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """ a FIFO caching implemenatation class """
     def __init__(self):
         """ Initailization """
         super().__init__()
         self.keys_holder = []
-    
+
     def put(self, key, item):
         """ add an item to the cache """
         if key is None or item is None:
