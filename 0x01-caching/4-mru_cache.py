@@ -9,7 +9,7 @@ class MRUCache(BaseCaching):
         """ initialization """
         super().__init__()
         self.stack = []
-    
+
     def put(self, key, item):
         """ add an item to the cache """
         if key is None or item is None:
@@ -17,7 +17,6 @@ class MRUCache(BaseCaching):
         else:
             size = len(self.cache_data)
             if size + 1 > BaseCaching.MAX_ITEMS and key not in self.cache_data:
-                
                 popped = self.stack.pop()
                 while popped not in self.cache_data:
                     popped = self.stack.pop()
@@ -35,4 +34,3 @@ class MRUCache(BaseCaching):
         else:
             self.stack.append(key)
             return result
-
