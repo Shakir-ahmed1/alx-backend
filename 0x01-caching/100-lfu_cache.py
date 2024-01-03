@@ -4,6 +4,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LFUCache(BaseCaching):
+    """ LFU caching implementation class """
     def __init__(self):
         """ initialization """
         super().__init__()
