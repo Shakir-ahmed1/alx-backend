@@ -20,10 +20,8 @@ app.config.from_object(Config)
 def get_locale():
     """ select best match """
     locale_param = request.args.get('locale')
-
-    # If the 'locale' parameter is provided and it's a supported locale, return it
     if locale_param and locale_param in Config.LANGUAGES:
-        return locale_param 
+        return locale_param
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
