@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
 import pytz
+import datetime
 app = Flask(__name__)
 babel = Babel(app)
 
@@ -80,7 +81,7 @@ def get_timezone():
 @app.route('/')
 def home_page():
     """ home page"""
-    return render_template('7-index.html')
+    return render_template('index.html', time_now = datetime.datetime.now())
 
 
 if __name__ == "__main__":
